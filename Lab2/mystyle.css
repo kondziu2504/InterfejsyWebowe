@@ -1,0 +1,41 @@
+html {
+  font-family: "Helvetica Neue", sans-serif;
+  width: 100%;
+  text-align: center;
+}
+
+.popup-overlay {
+  visibility: hidden;
+  position: absolute;
+  background: #ffffff;
+  border: 3px solid #666666;
+  width: 30%;
+  height: 20%;
+  left: 35%;
+}
+
+.popup-overlay.active {
+  visibility: visible;
+  text-align: center;
+}
+
+.popup-content {
+  visibility: hidden;
+}
+
+.popup-content.active {
+  visibility: visible;
+}
+
+button:not([disabled]):hover {
+	background-color: LightGray;
+}
+
+.delete-button {
+	background-color: red;
+	color: white;
+}
+
+.delete-button:not([disabled]):hover {
+	background-color: ff6161;
+}
