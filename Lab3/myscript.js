@@ -80,7 +80,6 @@ var candidates = [
 	{name:"Dagmara Dockerka", desc:"Lubi Dockera", email:"dagmara@dockerka.com", tags:"Docker"},
 	{name:"Renata Reakcyjna", desc:"Lubi Reacta", email:"renata@reakcyjna.com", tags:"React, CSS, JavaScript"}
 ];
-var found_candidates_count = 0
 
 function CandidatesList() {
 	let arr = [];
