@@ -3,6 +3,7 @@ class App extends React.Component {
 	render() {
 		return (
 			<>
+			
 				<MainPanel />
 				<AddPanel />
 			</>
@@ -15,11 +16,15 @@ class SearchBar extends React.Component {
 		return (
 			<>
 				<div style={{height: 100}}>
-					<div className="candidates-list" style={{width: "70%", height: "100%", float: "left"}}>
-						<label>Wyszukiwanie po tagach:</label>
-						<input type="text"/><br/><br/>
-						<label>Wyszukiwanie po opisach:</label>
-						<input id="desc_search" type="text" onChange={Refresh}/>
+					<div className="search-bar">
+						<div className="search-field">
+							<label>Wyszukiwanie po tagach:</label>
+							<input id="tags_search" type="text" onChange={Refresh}/><br/>
+						</div>
+						<div className="search-field">
+							<label>Wyszukiwanie po opisach:</label>
+							<input id="desc_search" type="text" onChange={Refresh}/>
+						</div>
 					</div>		
 					<SearchResult />
 				</div>
@@ -43,40 +48,87 @@ class AddPanel extends React.Component {
   render() {
     return (
 		<div className="add-panel">
-			<label>Dodawanie nowego studenta</label><br/><br/>
-			<label>Imię:</label>
-			<input id="addname" type="text"/><br/><br/>
-			<label>Opis:</label>
-			<input id="adddesc" type="text"/><br/><br/>
-			<label>Email:</label>
-			<input id="addemail" type="text"/><br/><br/>
-			<label>Tagi:</label>
-			<input id="addtags" type="text"/><br/><br/>
-			<input type="button" value="Dodaj" onClick={AddCandidateFromForm}/>
+			<div>
+				<label style={{fontWeight: "bold"}}>Dodawanie nowego studenta</label><br/>
+				<div className="add-panel-inputbox add-panel-field">
+					<label className="input-label">Imię:</label>
+					<input className="input-field" id="addname" type="text"/><br/>
+				</div>
+				<div className="add-panel-inputbox add-panel-field">
+					<label className="input-label">Opis:</label>
+					<input className="input-field"  id="adddesc" type="text"/><br/>
+				</div>
+				<div className="add-panel-inputbox add-panel-field">
+					<label className="input-label">Email:</label>
+					<input className="input-field"  id="addemail" type="text"/><br/>
+				</div>
+				<div className="add-panel-inputbox add-panel-field">
+					<label className="input-label">Tagi:</label>
+					<input className="input-field"  id="addtags" type="text"/><br/>
+				</div>
+			</div>
+			<div style={{clear: "both"}}>
+				<input c style={{width: "100%"}} type="button" value="Dodaj" onClick={AddCandidateFromForm}/>
+			</div>		
 		</div>
 	)
   }
 }
 
-var candidates = [{name:"TestName", desc:"TestDesc", email:"TestEmail", tags:"TestTags"}];
+var candidates = [
+	{name:"Arek Architekt", desc:"Arek jest świetnym architektem, lubi projektować systemy", email:"arek@architekt.com", tags:"docker, AWS, kubernetes, scrum"},
+	{name:"Dagmara Dockerka", desc:"Lubi Dockera", email:"dagmara@dockerka.com", tags:"Docker"},
+	{name:"Renata Reakcyjna", desc:"Lubi Reacta", email:"renata@reakcyjna.com", tags:"React, CSS, JavaScript"}
+];
+var found_candidates_count = 0
 
 function CandidatesList() {
 	let arr = [];
-	for(var i = 0; i < candidates.length; i++){		
-		let search = document.getElementById("desc_search")
-			if(search == null || search.value == "" || candidates[i].desc.includes(search))
-				arr.push(<CandidateElement key={candidates[i]} candidate={candidates[i]}/>)
+	let filteredCandidates = FilteredCandidates()
+	for(var i = 0; i < filteredCandidates.length; i++){		
+		arr.push(<CandidateElement key={i} candidate={filteredCandidates[i]}/>)	
 	}
-	return arr
+	return <div className="candidates-list"> {arr} </div>
+}
+
+function FilteredCandidates(){
+	let filteredCandidates = []
+	let search = document.getElementById("desc_search")
+	let tags_search = document.getElementById("tags_search")
+	let tags = []
+	if(tags_search != null)
+		tags = tags_search.value.split(" ")
+	for(var i = 0; i < candidates.length; i++){
+		let matches_tags = true
+		for(var j = 0; j < tags.length; j++){
+			if(!candidates[i].tags.toLowerCase().includes(tags[j].toLowerCase())){
+				matches_tags = false
+				break
+			}
+		}
+		
+		if(matches_tags == false)
+			continue
+		
+		if(search == null || search.value == "" || candidates[i].desc.toLowerCase().includes(search.value.toLowerCase())){
+			filteredCandidates.push(candidates[i])	
+		}
+	}
+	return filteredCandidates
 }
 
 function CandidateElement({candidate}) {
 	return (
-		<div className="candidates-element">
-			{candidate.name}<br/>
-			{candidate.desc}<br/>
-			{candidate.email}<br/>
-			{candidate.tags}
+		<div className="candidate-element">
+			<div style={{ float: "left"}}>
+				 <img style={{height: "100px", marginRight: "20px" }} src="https://cdn.icon-icons.com/icons2/1736/PNG/512/4043260-avatar-male-man-portrait_113269.png" alt="Image"/>
+			</div>
+			<div style={{ float: "left"}}>
+				{candidate.name}<br/>
+				{candidate.desc}<br/>
+				{candidate.email}<br/>
+				{candidate.tags}
+			</div>
 		</div>
 	)
 }
@@ -87,6 +139,8 @@ function AddCandidateFromForm(){
 	candidate.desc = document.getElementById('adddesc').value
 	candidate.email = document.getElementById('addemail').value
 	candidate.tags = document.getElementById('addtags').value
+	if(candidate.name == "" || candidate.desc == "" || candidate.email == "" || candidate.tags == "")
+		return
 	candidates.push(candidate);
 	Refresh()
 }
@@ -100,8 +154,8 @@ function Refresh(){
 
 function SearchResult(){
 		return (
-		<div className="candidates-element" style={{width: "30%", height: "100%", float: "left"}}>
-			Znaleziono {candidates.length} kandydatów
+		<div className="search-result">
+			<h3>Znaleziono {FilteredCandidates().length} kandydatów</h3>
 		</div>
 	)
 }

@@ -1,24 +1,71 @@
 body {
-	background: gray;
+	background: rgb(73, 88, 103);
 	padding: 20px;
 }
 
 .add-panel {
-  float: left;
-  width: 30%;
-  background: linen;
+  float: right;
+  width: 20%;
+  
+  text-align: center;
+  margin: 10px;
+  background: rgb(189, 213, 234);
+  padding: 20px;
+  border: 5px solid rgb(254, 95, 85);
 }
 
 .main-panel {
   float: left;
   width: 70%;
-  background: beige;
+  
+  margin: 10px;
+  background: rgb(189, 213, 234);
+  padding: 20px;
+  border: 5px solid rgb(254, 95, 85);
+  min-width: 800px;
 }
 
 .candidates-list {
-	background: azure;
+	margin-top: 20px;
 }
 
 .candidate-element {
-	background: mintcream;
+	background: rgb(247, 247, 255);
+	border: 2px solid rgb(73, 88, 103);
+	margin: 20px 10px;
+	padding: 10px;
+	height: 120px;
+}
+
+.search-result{
+	width: 40%;
+	height: 100%;
+	float: left;
+	padding: 20px;
+}
+
+.search-bar{
+	width: 60%;
+	height: 100%;
+	float: left;
+}
+
+.search-field{
+	margin: 10px;
+}
+
+.add-panel-inputbox{
+	float: right;
+}
+
+.add-panel-field{
+	margin: 5px;
+}
+
+.input-label{
+	width: 30%;
+}
+
+.input-field{
+	width: 70%;
 }
