@@ -44,7 +44,7 @@ function App() {
 							</div>
 						</nav>
 						<Switch>
-							<Route exact path="/">
+							<Route exact path="/InterfejsyWebowe/">
 								<Home />
 							</Route>
 							<Route path="/InterfejsyWebowe/search-student">
