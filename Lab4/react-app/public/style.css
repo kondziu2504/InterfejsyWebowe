@@ -1,0 +1,95 @@
+body {
+	background: rgb(73, 88, 103);
+	padding: 20px;
+}
+
+.add-panel {
+	width: 30%;
+	text-align: center;
+	margin: auto;
+	margin-top: 20px;
+	background: rgb(189, 213, 234);
+	padding: 20px;
+	border: 5px solid rgb(254, 95, 85);
+}
+
+.main-panel {  
+	margin: 10px;
+	background: rgb(189, 213, 234);
+	padding: 20px;
+	border: 5px solid rgb(254, 95, 85);
+	min-width: 800px;
+}
+
+.candidates-list {
+	margin-top: 20px;
+}
+
+.candidate-element {
+	background: rgb(247, 247, 255);
+	border: 2px solid rgb(73, 88, 103);
+	margin: 20px 10px;
+	padding: 10px;
+	height: 120px;
+}
+
+.search-result{
+	width: 40%;
+	height: 100%;
+	float: left;
+	padding: 20px;
+}
+
+.search-bar{
+	height: 100%;
+	float: left;
+}
+
+.search-field{
+	margin: 10px;
+}
+
+.add-panel-inputbox{
+	
+}
+
+.add-panel-field{
+	margin: 5px;
+}
+
+.input-label{
+	width: 20%;
+	text-align: right;
+	margin-right: 10px;
+}
+
+.input-field{
+	width: 70%;
+}
+
+.grid-container {
+	display: grid;
+	grid-template-columns: auto auto auto auto auto;
+    background-color: rgb(254, 95, 85);
+	padding: 3px;
+}
+
+.grid-item {
+	height: 100%;
+  background-color: rgb(247, 247, 255);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.grid-item:hover {
+  background-color: rgba(247, 247, 255, 0.9);
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
