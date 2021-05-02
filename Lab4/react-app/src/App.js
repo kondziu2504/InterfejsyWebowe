@@ -16,27 +16,27 @@ function App() {
 					<div>		
 						<nav>
 							<div className="grid-container">
-								<Link to="InterfejsyWebowe/" >
+								<Link to="/" >
 									<div className="grid-item">
 											Strona domowa
 									</div>
 								</Link>
-								<Link to="InterfejsyWebowe/search-student" >
+								<Link to="/search-student" >
 									<div className="grid-item">
 											Wyszukaj studenta
 									</div>
 								</Link>
-								<Link to="InterfejsyWebowe/add-student">
+								<Link to="/add-student">
 									<div className="grid-item">
 										Dodaj studenta
 									</div>
 								</Link>
-								<Link to="InterfejsyWebowe/search-group">
+								<Link to="/search-group">
 									<div className="grid-item">
 										Wyszukaj grupę
 									</div>
 								</Link>
-								<Link to="InterfejsyWebowe/add-group">
+								<Link to="/add-group">
 									<div className="grid-item">
 										Dodaj grupę
 									</div>
@@ -44,19 +44,19 @@ function App() {
 							</div>
 						</nav>
 						<Switch>
-							<Route exact path="InterfejsyWebowe/">
+							<Route exact path="/">
 								<Home />
 							</Route>
-							<Route path="InterfejsyWebowe/search-student">
+							<Route path="/search-student">
 								<SearchStudentPanel />
 							</Route>
-							<Route path="InterfejsyWebowe/add-student">
+							<Route path="/add-student">
 								<AddStudentPanel />
 							</Route>
-							<Route path="InterfejsyWebowe/search-group">
+							<Route path="/search-group">
 								<SearchGroupPanel />
 							</Route>
-							<Route path="InterfejsyWebowe/add-group">
+							<Route path="/add-group">
 								<AddGroupPanel />
 							</Route>
 						</Switch>
