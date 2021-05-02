@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/InterfejsyWebowe/static/css/main.9d5b29c0.chunk.css",
-    "main.js": "/InterfejsyWebowe/static/js/main.ab56e8b3.chunk.js",
-    "main.js.map": "/InterfejsyWebowe/static/js/main.ab56e8b3.chunk.js.map",
-    "runtime-main.js": "/InterfejsyWebowe/static/js/runtime-main.24678347.js",
-    "runtime-main.js.map": "/InterfejsyWebowe/static/js/runtime-main.24678347.js.map",
-    "static/js/2.77a2a091.chunk.js": "/InterfejsyWebowe/static/js/2.77a2a091.chunk.js",
-    "static/js/2.77a2a091.chunk.js.map": "/InterfejsyWebowe/static/js/2.77a2a091.chunk.js.map",
-    "static/js/3.c8369b25.chunk.js": "/InterfejsyWebowe/static/js/3.c8369b25.chunk.js",
-    "static/js/3.c8369b25.chunk.js.map": "/InterfejsyWebowe/static/js/3.c8369b25.chunk.js.map",
-    "index.html": "/InterfejsyWebowe/index.html",
-    "static/css/main.9d5b29c0.chunk.css.map": "/InterfejsyWebowe/static/css/main.9d5b29c0.chunk.css.map",
-    "static/js/2.77a2a091.chunk.js.LICENSE.txt": "/InterfejsyWebowe/static/js/2.77a2a091.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/InterfejsyWebowe/static/media/logo.6ce24c58.svg"
+    "main.css": "/InterfejsyWebowe/Lab4/static/css/main.9d5b29c0.chunk.css",
+    "main.js": "/InterfejsyWebowe/Lab4/static/js/main.ab56e8b3.chunk.js",
+    "main.js.map": "/InterfejsyWebowe/Lab4/static/js/main.ab56e8b3.chunk.js.map",
+    "runtime-main.js": "/InterfejsyWebowe/Lab4/static/js/runtime-main.55f01a7d.js",
+    "runtime-main.js.map": "/InterfejsyWebowe/Lab4/static/js/runtime-main.55f01a7d.js.map",
+    "static/js/2.77a2a091.chunk.js": "/InterfejsyWebowe/Lab4/static/js/2.77a2a091.chunk.js",
+    "static/js/2.77a2a091.chunk.js.map": "/InterfejsyWebowe/Lab4/static/js/2.77a2a091.chunk.js.map",
+    "static/js/3.c8369b25.chunk.js": "/InterfejsyWebowe/Lab4/static/js/3.c8369b25.chunk.js",
+    "static/js/3.c8369b25.chunk.js.map": "/InterfejsyWebowe/Lab4/static/js/3.c8369b25.chunk.js.map",
+    "index.html": "/InterfejsyWebowe/Lab4/index.html",
+    "static/css/main.9d5b29c0.chunk.css.map": "/InterfejsyWebowe/Lab4/static/css/main.9d5b29c0.chunk.css.map",
+    "static/js/2.77a2a091.chunk.js.LICENSE.txt": "/InterfejsyWebowe/Lab4/static/js/2.77a2a091.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/InterfejsyWebowe/Lab4/static/media/logo.6ce24c58.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.24678347.js",
+    "static/js/runtime-main.55f01a7d.js",
     "static/js/2.77a2a091.chunk.js",
     "static/css/main.9d5b29c0.chunk.css",
     "static/js/main.ab56e8b3.chunk.js"
