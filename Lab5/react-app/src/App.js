@@ -52,7 +52,7 @@ function App() {
 					<div>		
 						<nav>
 							<div className="grid-container">
-								<Link to="/InterfejsyWebowe/home" >
+								<Link to="/InterfejsyWebowe/" >
 									<div className="grid-item">
 											Strona domowa
 									</div>
@@ -80,7 +80,7 @@ function App() {
 							</div>
 						</nav>
 						<Switch>
-							<Route exact path="/InterfejsyWebowe/home">
+							<Route exact path="/InterfejsyWebowe/">
 								<Home />
 							</Route>
 							<Route path="/InterfejsyWebowe/search-student">
