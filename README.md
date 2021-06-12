@@ -1,2 +1,2 @@
 # InterfejsyWebowe
-https://kondziu2504.github.io/InterfejsyWebowe/home
+https://kondziu2504.github.io/InterfejsyWebowe
