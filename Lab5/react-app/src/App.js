@@ -36,13 +36,17 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
 
+var candidates = []
+var groups = []
+
 function App() {
 	
 	if (firebase.auth().currentUser) {
 	return (
 			<>
 				<div className="status-panel">
-					<p>Zalogowany użytkownik: {firebase.auth().currentUser.email}</p>
+					<label>Zalogowany użytkownik: {firebase.auth().currentUser.email}</label>
+					<input c type="button" value="Wyloguj" onClick={logout}/>
 				</div>
 				<Router>
 					<div>		
@@ -73,9 +77,6 @@ function App() {
 										Dodaj grupę
 									</div>
 								</Link>
-								<div className="logout-grid-item">
-									<input c style={{width: "100%"}} type="button" value="Wyloguj" onClick={logout}/>
-								</div>
 							</div>
 						</nav>
 						<Switch>
@@ -113,10 +114,38 @@ function logout() {
 	})
 }
 
+function refreshCandidates() {
+	firebase.database().ref('users').on('value', (snapshot) => {
+			candidates = []
+		  snapshot.forEach(function(childSnapshot) {
+			  var childKey = childSnapshot.key;
+			  var childData = childSnapshot.val();
+			  candidates.push(childData)
+		  })
+			}, (errorObject) => {
+		  console.log('The read failed: ' + errorObject.name);
+		}); 
+}
+
+function refreshGroups() {
+	firebase.database().ref('groups').on('value', (snapshot) => {
+			groups = []
+		  snapshot.forEach(function(childSnapshot) {
+			  var childKey = childSnapshot.key;
+			  var childData = childSnapshot.val();
+			  groups.push(childData)
+		  })
+			}, (errorObject) => {
+		  console.log('The read failed: ' + errorObject.name);
+		}); 
+}
+
 firebase.auth().onAuthStateChanged(function(user) {
 	if (user) {
 		var email = document.getElementById("email_field").value;
 		var password = document.getElementById("password_field").value;
+		refreshCandidates()
+		refreshGroups()
 		Refresh()
 	} else {
 
@@ -146,11 +175,6 @@ class LoginScreen extends React.Component {
 		firebase.auth().createUserWithEmailAndPassword(email, password)
 			.then((userCredential) => {
 			var user = userCredential.user;
-			firebase.database().ref('/users/').push().set({
-				email: user.email,
-				description: "example description",
-				tags: "example, tags"
-			})
 			window.alert("Pomyślnie zarejestrowano")
 	  }).catch((error) => {
 			var errorCode = error.code;
@@ -320,16 +344,16 @@ class AddGroupPanel extends React.Component {
   }
 }
 
-var candidates = [
-	{name:"Arek Architekt", desc:"Arek jest świetnym architektem, lubi projektować systemy", email:"arek@architekt.com", tags:"docker, AWS, kubernetes, scrum"},
-	{name:"Dagmara Dockerka", desc:"Lubi Dockera", email:"dagmara@dockerka.com", tags:"Docker"},
-	{name:"Renata Reakcyjna", desc:"Lubi Reacta", email:"renata@reakcyjna.com", tags:"React, CSS, JavaScript"}
-];
+//var candidates = [
+	//{name:"Arek Architekt", desc:"Arek jest świetnym architektem, lubi projektować systemy", email:"arek@architekt.com", tags:"docker, AWS, kubernetes, scrum"},
+	//{name:"Dagmara Dockerka", desc:"Lubi Dockera", email:"dagmara@dockerka.com", tags:"Docker"},
+	//{name:"Renata Reakcyjna", desc:"Lubi Reacta", email:"renata@reakcyjna.com", tags:"React, CSS, JavaScript"}
+//];
 
-var groups = [
-	{name:"Fanatycy Dockera", desc:"Poszukujemny fanatyków Dockera", tags:"Docker, CSS"},
-	{name:"Reaktywni", desc:"Poszukujemny fanatyków Reacta", tags:"React, JavaScript"}
-];
+//var groups = [
+	//{name:"Fanatycy Dockera", desc:"Poszukujemny fanatyków Dockera", tags:"Docker, CSS"},
+	//{name:"Reaktywni", desc:"Poszukujemny fanatyków Reacta", tags:"React, JavaScript"}
+//];
 
 function CandidatesList() {
 	let arr = [];
@@ -394,7 +418,7 @@ function FilteredCandidates(){
 		if(matches_tags == false)
 			continue
 		
-		if(search == null || search.value == "" || candidates[i].desc.toLowerCase().includes(search.value.toLowerCase())){
+		if(search == null || search.value == "" || candidates[i].description.toLowerCase().includes(search.value.toLowerCase())){
 			filteredCandidates.push(candidates[i])	
 		}
 	}
@@ -409,8 +433,8 @@ function CandidateElement({candidate}) {
 			</div>
 			<div style={{ float: "left"}}>
 				{candidate.name}<br/>
-				{candidate.desc}<br/>
 				{candidate.email}<br/>
+				{candidate.description}<br/>
 				{candidate.tags}
 			</div>
 		</div>
@@ -425,7 +449,7 @@ function GroupElement({group}) {
 			</div>
 			<div style={{ float: "left"}}>
 				{group.name}<br/>
-				{group.desc}<br/>
+				{group.description}<br/>
 				{group.tags}
 			</div>
 		</div>
@@ -438,9 +462,15 @@ function AddCandidateFromForm(){
 	candidate.desc = document.getElementById('adddesc').value
 	candidate.email = document.getElementById('addemail').value
 	candidate.tags = document.getElementById('addtags').value
-	if(candidate.name == "" || candidate.desc == "" || candidate.email == "" || candidate.tags == "")
+	if(candidate.desc == "" || candidate.email == "" || candidate.tags == "")
 		return
-	candidates.push(candidate);
+	firebase.database().ref('/users/').push().set({
+		name: candidate.name,
+		email: candidate.email,
+		description: candidate.desc,
+		tags: candidate.tags
+	})
+	refreshCandidates()
 	Refresh()
 }
 
@@ -451,7 +481,12 @@ function AddGroupFromForm(){
 	group.tags = document.getElementById('addtagsgroup').value
 	if(group.name == "" || group.desc == "" || group.tags == "")
 		return
-	groups.push(group);
+	firebase.database().ref('/groups/').push().set({
+		name: group.name,
+		description: group.desc,
+		tags: group.tags
+	})
+	refreshGroups()
 	Refresh()
 }
 
