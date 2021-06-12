@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/InterfejsyWebowe/static/css/main.9d5b29c0.chunk.css",
-    "main.js": "/InterfejsyWebowe/static/js/main.14c8c31e.chunk.js",
-    "main.js.map": "/InterfejsyWebowe/static/js/main.14c8c31e.chunk.js.map",
-    "runtime-main.js": "/InterfejsyWebowe/static/js/runtime-main.24678347.js",
-    "runtime-main.js.map": "/InterfejsyWebowe/static/js/runtime-main.24678347.js.map",
-    "static/js/2.77a2a091.chunk.js": "/InterfejsyWebowe/static/js/2.77a2a091.chunk.js",
-    "static/js/2.77a2a091.chunk.js.map": "/InterfejsyWebowe/static/js/2.77a2a091.chunk.js.map",
-    "static/js/3.c8369b25.chunk.js": "/InterfejsyWebowe/static/js/3.c8369b25.chunk.js",
-    "static/js/3.c8369b25.chunk.js.map": "/InterfejsyWebowe/static/js/3.c8369b25.chunk.js.map",
-    "index.html": "/InterfejsyWebowe/index.html",
-    "static/css/main.9d5b29c0.chunk.css.map": "/InterfejsyWebowe/static/css/main.9d5b29c0.chunk.css.map",
-    "static/js/2.77a2a091.chunk.js.LICENSE.txt": "/InterfejsyWebowe/static/js/2.77a2a091.chunk.js.LICENSE.txt",
-    "static/media/logo.6ce24c58.svg": "/InterfejsyWebowe/static/media/logo.6ce24c58.svg"
+    "main.css": "/InterfejsyWebowe/home/static/css/main.8ec4cf16.chunk.css",
+    "main.js": "/InterfejsyWebowe/home/static/js/main.d0732350.chunk.js",
+    "main.js.map": "/InterfejsyWebowe/home/static/js/main.d0732350.chunk.js.map",
+    "runtime-main.js": "/InterfejsyWebowe/home/static/js/runtime-main.2ca5676c.js",
+    "runtime-main.js.map": "/InterfejsyWebowe/home/static/js/runtime-main.2ca5676c.js.map",
+    "static/js/2.3585284e.chunk.js": "/InterfejsyWebowe/home/static/js/2.3585284e.chunk.js",
+    "static/js/2.3585284e.chunk.js.map": "/InterfejsyWebowe/home/static/js/2.3585284e.chunk.js.map",
+    "static/js/3.abd8ac4a.chunk.js": "/InterfejsyWebowe/home/static/js/3.abd8ac4a.chunk.js",
+    "static/js/3.abd8ac4a.chunk.js.map": "/InterfejsyWebowe/home/static/js/3.abd8ac4a.chunk.js.map",
+    "index.html": "/InterfejsyWebowe/home/index.html",
+    "static/css/main.8ec4cf16.chunk.css.map": "/InterfejsyWebowe/home/static/css/main.8ec4cf16.chunk.css.map",
+    "static/js/2.3585284e.chunk.js.LICENSE.txt": "/InterfejsyWebowe/home/static/js/2.3585284e.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/InterfejsyWebowe/home/static/media/logo.6ce24c58.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.24678347.js",
-    "static/js/2.77a2a091.chunk.js",
-    "static/css/main.9d5b29c0.chunk.css",
-    "static/js/main.14c8c31e.chunk.js"
+    "static/js/runtime-main.2ca5676c.js",
+    "static/js/2.3585284e.chunk.js",
+    "static/css/main.8ec4cf16.chunk.css",
+    "static/js/main.d0732350.chunk.js"
   ]
 }
